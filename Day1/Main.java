@@ -27,9 +27,10 @@ public class Main {
         System.out.println(c2.getSuperclass());
     }
 
-    //lower bounded constraint
+    //lower bounded constraint <? super A>
     //normally only happens when you're reading
-    //upper bounded constraints normally happen during writing
+    //upper bounded constraints normally happen during writing <? extends number>
+    //unbounded wildcards <?> ex: Box<?> = new <Integer> Box()
     public static <A extends Comparable<? super A>> void sort(List<A> list){
 
         //throw new NotImplementedException();
@@ -59,4 +60,11 @@ class Zebra extends Animal{
         this.age = age;
     }
 }
+/*
+-Java generics implements parametric polymorphism (type parameter, can take many forms)
+-implemented using type erasure -> once the compiler does its type checking, it discards generics
+    the JVM never sees the generics info
+-pro: backward compatibility is maintained
+-con: generic class info can not be figured out at runtime
+ */
 
