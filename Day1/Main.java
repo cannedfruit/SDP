@@ -31,6 +31,7 @@ public class Main {
     //normally only happens when you're reading
     //upper bounded constraints normally happen during writing <? extends number>
     //unbounded wildcards <?> ex: Box<?> = new <Integer> Box()
+    // use when reading in and the variable can be access using methods defined in object class
     public static <A extends Comparable<? super A>> void sort(List<A> list){
 
         //throw new NotImplementedException();
@@ -60,11 +61,25 @@ class Zebra extends Animal{
         this.age = age;
     }
 }
-/*
+/* Generics
+
+E - Element
+K - Key
+N - Number
+T - Type
+V - Value
+S,U,V etc. - 2nd, 3rd, 4th types
+
 -Java generics implements parametric polymorphism (type parameter, can take many forms)
 -implemented using type erasure -> once the compiler does its type checking, it discards generics
     the JVM never sees the generics info
+
+    if you don't specify a type when you instantiate a generic, it is a raw type -> doesn't catch the
+    type checks until runtime (BAD)
+
 -pro: backward compatibility is maintained
 -con: generic class info can not be figured out at runtime
+
+fixing compile-time errors is easier than fixing runtime errors
  */
 
