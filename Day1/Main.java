@@ -1,13 +1,13 @@
-package Day1;
-
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
         List<Lion> enclosure = new ArrayList();
         enclosure.add(new Lion(12));
         enclosure.add(new Lion(18));
@@ -16,14 +16,24 @@ public class Main {
         List<Animal> zoo = new ArrayList();
         zoo.add(new Lion(23));
         zoo.add(new Zebra(10));
-        System.out.println("Hello World!");
+
+        Reflection test = new Reflection(12, "abc");
+        System.out.println(test.getClass());
+        Class c1 = Class.forName("Reflection");
+        System.out.println(c1);
+        System.out.println(Arrays.toString(c1.getConstructors()));
+        System.out.println(Arrays.toString(c1.getDeclaredFields()));
+        Class c2 = Class.forName("Lion");
+        System.out.println(c2.getSuperclass());
     }
 
     //lower bounded constraint
     //normally only happens when you're reading
     //upper bounded constraints normally happen during writing
     public static <A extends Comparable<? super A>> void sort(List<A> list){
-        throw new NotImplementedException();
+
+        //throw new NotImplementedException();
+
     }
 }
 
@@ -50,12 +60,3 @@ class Zebra extends Animal{
     }
 }
 
-
-/*
-1. message passing  - sync
-                    -async
-2. encapsulation - classes(abstract classes(interfaces))
-3. polymorphism - ad-hoc(overloading, overridding) - parametric - generics (upperbound, lowerbound, wildcards)
-4. inheritance - SI (spec extends, implements and extends)
-                -Multiple Inheritance (spec extends,
- */
