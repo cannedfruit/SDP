@@ -83,3 +83,32 @@ S,U,V etc. - 2nd, 3rd, 4th types
 fixing compile-time errors is easier than fixing runtime errors
  */
 
+/* Reflection
+used to inspect code at runtime without knowing the names of classes and methods.
+also used to instantiate new objects, invoke methods and get/set field values
+
+Encoding scheme used by Class.forName()
+    B ⇒ byte; C ⇒ char; D ⇒ double; F ⇒ float; I ⇒ int;
+    J ⇒ long; Lclass-name ⇒ class-name[];
+    S ⇒ short; Z ⇒ boolean
+    Use as many "["s as there are dimensions in the array
+    ex: Class cStringArray = Class.forName("[[Ljava.lang.String;"); corresponds to a 2D String array (String[][])
+
+to call a constructor:
+    default:
+        Class c = Class.forName(className);
+        c.newInstance();
+    non-default:
+        Class.getConstructor(Class[] parameterTypes)
+        Constructor.newInstance(Object[] parameters)
+
+-can change modifiers (abstract, final, native, private, protected, public, static, strictfp, synchronized, transient, and volatile)
+   ex:
+    if (!Modifier.isPublic(field.getModifiers()) {
+        field.setAccessible(true);
+    }
+    Object obj = field.get(obj);
+
+
+ */
+
