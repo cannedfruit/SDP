@@ -19,56 +19,56 @@ public class XpayImpl implements Xpay {
 
     @Override
     public void setCreditCardNo(String creditCardNo) {
-
+        this.creditCardNo = creditCardNo;
     }
 
     @Override
     public String getCustomerName() {
-        return null;
+        return customerName;
     }
 
     @Override
     public void setCustomerName(String customerName) {
-
+        this.customerName = customerName;
     }
 
     @Override
     public String getCardExpMonth() {
-        return null;
+        return cardExpMonth;
     }
 
     @Override
     public void setCardExpMonth(String cardExpMonth) {
-
+        this.cardExpMonth = cardExpMonth;
     }
 
     @Override
     public String getCardExpYear() {
-        return null;
+        return cardExpYear;
     }
 
     @Override
     public void setCardExpYear(String cardExpYear) {
-
+        this.cardExpYear = cardExpYear;
     }
 
     @Override
     public Short getCardCVVNo() {
-        return null;
+        return cardCVVNo;
     }
 
     @Override
     public void setCardCVVNo(Short cardCVVNo) {
-
+        this.cardCVVNo = cardCVVNo;
     }
 
     @Override
     public Double getAmount() {
-        return null;
+        return amount;
     }
 
     @Override
     public void setAmount(Double amount) {
-
+        this.amount = amount;
     }
 }
