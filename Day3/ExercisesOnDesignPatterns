@@ -1,0 +1,120 @@
+1/19/2015 Day 3
+Exercises on Design Patterns (adapter, decorator, factory method, observer(MVC), and singleton)
+
+1. Write down three differences between abstract classes and interfaces in Java 8. Provide
+examples to illustrate your answer.
+
+    - Classes can implement multiple interfaces but only extend one abstract
+    - Interfaces cannot contain a constructor while an abstract can
+    - fields are by default static and final in interfaces
+    - visibility in an interface is default public
+    - abstract inherits from object while interface inherits from nothing
+
+2. Are the following true or false?
+(a) Every interface must have at least one method.
+    - false
+    ex: Serializable
+(b) An interface can declare instance fields that an implementing class must also
+declare.
+    - false
+    ex: fields must be static and final
+(c) Although you can’t instantiate an interface, an interface definition can declare
+constructor methods that require an implementing class to provide constructors
+with given signatures.
+Provide examples to illustrate your answers.
+    - false
+    ex: interfaces define behaviour and not what it is
+
+3. Provide an example of an interface with methods that do not imply responsibility on
+the part of the implementing class to take action on behalf of the caller or to return
+a value.
+    void interface methods
+    ex: WindowAdapter
+
+4. What is the value of a stub class like WindowAdapter which is composed of methods
+that do nothing?
+"stub/WindowListener.java"
+    package stub;
+
+    public interface WindowListener {
+        void windowOpened();
+        void windowClosing();
+        void windowClosed();
+        void windowIconified();
+        void windowDeiconified();
+        void windowActivated();
+        void windowDeactivated();
+    }
+
+"stub/WindowAdapter.java"
+    package stub;
+    public class WindowAdapter implements WindowListener {
+        @Override
+        public void windowOpened() {}
+        @Override
+        public void windowClosing() {}
+        @Override
+        public void windowClosed() {}
+        @Override
+        public void windowIconified() {}
+        @Override
+        public void windowDeiconified() {}
+        @Override
+        public void windowActivated() {}
+        @Override
+        public void windowDeactivated() {}
+    }
+
+    provides default implementation for everything and allows a class extending WindowAdapter to pick and choose what to override and use
+
+5. How can you prevent other developers from constructing new instances of your class?
+Provide appropriate examples to illustrate your answer.
+    singleton - private constructor
+    static getInstance method
+
+6. Why might you decide to lazy-initialise a singleton instance rather than initialise it in
+its field declaration? Provide examples of both approaches to illustrate your answer.
+    more efficient to only initialise the class if needed. Can also isolate the need for synchronised
+     in the call to the private constructor
+
+7. Using the java.util.Observable and java.util.Observer classes/interfaces show
+how one object can be informed of updates to another object.
+
+    public class myObservable extends Observable{
+        uses Observable class methods such as addObserver(Observer)
+        once the Observable has changed, set flag to true (setChanged())
+        the notifyObservers calls the update method of every Observer
+    }
+
+    public class MyObserver implements Observer{
+        public void notify()
+    }
+
+8. “The Observer pattern supports the MVC pattern”. State if this statement is true
+or false and support your answer by use of an appropriate example.
+    True. Observer is a jazzed up version of MVC.
+
+9. Provide examples of two commonly used Java methods that return a new object.
+    String
+    new
+
+10. What are the signs that a Factory Method is at work?
+    no new keywords
+    binding and implementation separate.
+    returning a type
+
+11. If you want to direct output to System.out instead of to a file, you can create a
+Writer object that directs its output to System.out:
+    Writer out = new PrintWriter(System.out);
+Write a code example to define a Writer object that wraps text at 15 characters, centres
+the text, sets the text to random casing, and directs the output to System.out.
+Which design pattern are you using?
+
+    decorator pattern
+
+    WrapFilter out =
+        new Wrap (
+            new Buffer(
+                new Case(
+                    new PrintWriter(System.out))));
+    out.setCentre(true);

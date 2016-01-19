@@ -5,8 +5,10 @@ import java.util.Properties;
 
 /**
  * Created by Sarah on 1/12/2016.
+ * SDP Keith Mannock
  */
 public class MessageSupportFactory {
+    //MessageSupportFactory is a singleton
     private static MessageSupportFactory instance = null;
     private Properties props = null;
     private MessageRenderer renderer = null;
@@ -16,7 +18,7 @@ public class MessageSupportFactory {
         props = new Properties();
 
         try {
-            props.load(new FileInputStream("bean.properties"));
+            props.load(new FileInputStream("/Users/Sarah/IdeaProjects/S_D_P/src/Day2/DecoupledHelloWorldWithFactory/bean.properties"));
 
             // get the implementation classes
             String rendererClass = props.getProperty("renderer.class");
@@ -31,6 +33,7 @@ public class MessageSupportFactory {
         }
     }
 
+    //static initialisation block (could be placed up at the initialisation above but this makes it clearer)
     static {
         instance = new MessageSupportFactory();
     }

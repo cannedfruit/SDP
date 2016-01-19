@@ -16,8 +16,11 @@ public class SOLID {
         Injection frameworks: SpringDI, Guice/Dagger, CDI, Jave EE...
         (Dagger is exclusively in Java,
         Spring DI creates a Spring framework which is an alternative to Java Enterprise but is heavy and has IDE support,
-        Guice is lighter an Dagger is lighter)
+        Guice is lighter and Dagger is even lighter)
     design by contract will be seen later
+
+    common patterns of design based of c++ code (structural, behavioural...)
+    singleton pattern - only want one instance of a class
     */
 
 
