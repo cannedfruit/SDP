@@ -1,0 +1,20 @@
+Day 4 Scala Part 2
+1.
+(a) 42 is an Int
+(b) true is a Boolean
+(c) 123L is a Long
+(d) 42.0 is a Double
+
+2. 'a' is a Char and "a" is a String
+
+3. "Hello world" is a String while println("Hello world") is a function
+
+4. '' denotes a Char which can only contain one symbol. If you attempt to type 'Hello world!' into the REPL,
+it will throw an error: unclosed character literal.
+
+5.
+(a) String "predator"
+(b) Int 2001
+(c) String "hello"
+
+6.

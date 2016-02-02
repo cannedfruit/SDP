@@ -1,0 +1,15 @@
+1.  a) The Strategy Design Pattern defines a family of algorithms, encapsulate them and makes them interchangeable
+    within that family. It uses an interface to define a method that all subclasses will use.
+    The subclasses define their own version of the method and any classes that want to call on that method
+    will keep a field to contain one of the subclasses to define which method they are choosing.
+
+    b) It is appropriate to use the Strategy Design Pattern when we want to define a class
+     that will have one behaviours that is similar to other behaviours in a list.
+     It also reduces a long list of conditionals and avoids duplicate code.
+     Class changes do not force other class changes and can hide complicated code from the user.
+     However, the design pattern increases the number of classes and objects necessary.
+
+3. The Abstract Factory Pattern is appropriate when we want to separate the details of implementation
+  from their general usage. In other words, it allows you to create families of related objects without
+  specifying a concrete class and allows you to use objects that can be added, or changed dynamically during runtime.
+
