@@ -14,6 +14,11 @@
   specifying a concrete class and allows you to use objects that can be added, or changed dynamically during runtime.
 
 5. By keeping all methods and details related to an object's construction within its class can lead to very long code.
-    A class with too many methods and fields reduces the modularity of the code. In addition, if it gets too large in size,
-    it leads to construction bloat (bulky object code). The Builder pattern can move construction logic out of the object
-    class to a separate class.
+    A class with too many methods and fields reduces the modularity of the code. In addition, if it gets too large in
+     size, it leads to construction bloat (bulky object code). The Builder pattern can move construction logic out of
+     the object class to a separate class.
+
+7.  (a) The Facade Pattern is essentially a user interface that simplifies and hides complexities of an application.
+
+    (b) It is most useful to use a Facade when you want to make a system easier to understand or methods easier to use.
+        It can also serve to reduce dependencies of external code on the inner code since it will rely on the facade.
