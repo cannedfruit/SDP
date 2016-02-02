@@ -13,3 +13,7 @@
   from their general usage. In other words, it allows you to create families of related objects without
   specifying a concrete class and allows you to use objects that can be added, or changed dynamically during runtime.
 
+5. By keeping all methods and details related to an object's construction within its class can lead to very long code.
+    A class with too many methods and fields reduces the modularity of the code. In addition, if it gets too large in size,
+    it leads to construction bloat (bulky object code). The Builder pattern can move construction logic out of the object
+    class to a separate class.
