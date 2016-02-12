@@ -25,6 +25,10 @@ object TeaScript extends  App{
   val washer2 = new ClothesWasher("modelName")
   val washer3 = new ClothesWasher(32.0)
 
+  //13.
+  val washer4 = new ClothesWasher2
+  val washer5 = new ClothesWasher2("modelName")
+  val washer6 = new ClothesWasher2(capacity = 32.0)
 }
 
 class Tea(decaf: Boolean = false, name: String = "Earl Grey", sugar: Boolean = false, milk: Boolean = false){
@@ -56,3 +60,5 @@ class ClothesWasher(){
     println("calling aux constructor Double")
   }
 }
+
+class ClothesWasher2(modelName: String = "model name", capacity: Double = 0.0)
