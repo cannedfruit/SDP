@@ -1,0 +1,16 @@
+Compare FP and OO
+Scala - natural polyglot language
+    - sum type pattern isa (or)
+    - product type pattern hasa (and)
+
+Algebraic Data types (ADT)
+    - combination of data types
+    - decompose
+
+structural Recursion
+    - Polymorphism(OO)
+        - product type
+        - sum type
+    - Pattern Matching (FP)
+        - product type
+        - sum type
