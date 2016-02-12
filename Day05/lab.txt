@@ -24,3 +24,9 @@
         It can also serve to reduce dependencies of external code on the inner code since it will rely on the facade.
 
 9.  The Bridge Design Pattern should be used when independence between the abstraction and their concrete classes
+
+11. (a) The composite pattern is a pattern that allows you to aggregate objects and manipulate them as a single instance.
+    (b) We use the composite pattern when we want to use a group of objects in a similar way.
+    (c) In the composite pattern there is a Component (the abstraction of all component), the Leaf (which implements
+        all Component methods, the Composite (the composition of all the similar objects), and the client which
+        interacts with the abstract
