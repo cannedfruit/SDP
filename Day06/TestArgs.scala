@@ -6,6 +6,7 @@ import atomicscala.AtomicTest._
 Class Arguments (3-5)
  */
 object TestArgs extends App {
+  println("3. & 4.")
   val family1 = new Family("Mum", "Dad", "Sally", "Dick")
   family1.familySize() is 4
   val family2 = new Family("Dad", "Mom", "Harry")
@@ -27,6 +28,17 @@ object TestArgs extends App {
     num.foreach(num => sum += (num * num))
     sum
   }
+
+  //6.
+  println("\n6.")
+  val t = new SimpleTime(hours=5, minutes=30)
+  t.hours is 5
+  t.minutes is 30
+  val t2 = new SimpleTime(hours=10)
+  t2.hours is 10
+  t2.minutes is 0
+
+
 }
 
 class Family(members: String*) {
@@ -40,6 +52,10 @@ class FlexibleFamily(mom: String, dad: String, children: String*) extends Family
     children.length + 2
   }
 }
+
+class SimpleTime(val hours: Int, val minutes: Int = 0) {}
+
+
 
 
 
