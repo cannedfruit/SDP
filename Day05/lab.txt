@@ -22,3 +22,5 @@
 
     (b) It is most useful to use a Facade when you want to make a system easier to understand or methods easier to use.
         It can also serve to reduce dependencies of external code on the inner code since it will rely on the facade.
+
+9.  The Bridge Design Pattern should be used when independence between the abstraction and their concrete classes
