@@ -56,6 +56,9 @@ class ClothesWasher(){
   }
 
   def this(capacity: Double){
+    //14.
+    //throws error if try to call something before the primary constructor
+    //println("calling aux constructor Double")
     this()
     println("calling aux constructor Double")
   }
