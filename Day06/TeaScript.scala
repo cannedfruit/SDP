@@ -29,6 +29,13 @@ object TeaScript extends  App{
   val washer4 = new ClothesWasher2
   val washer5 = new ClothesWasher2("modelName")
   val washer6 = new ClothesWasher2(capacity = 32.0)
+
+  //15.
+  val p = Person("Jane", "Smile", "jane@smile.com")
+  p.first is "Jane"
+  p.last is "Smile"
+  p.email is "jane@smile.com"
+
 }
 
 class Tea(decaf: Boolean = false, name: String = "Earl Grey", sugar: Boolean = false, milk: Boolean = false){
@@ -65,3 +72,5 @@ class ClothesWasher(){
 }
 
 class ClothesWasher2(modelName: String = "model name", capacity: Double = 0.0)
+
+case class Person(first: String, last: String, email: String)
