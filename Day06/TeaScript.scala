@@ -65,6 +65,14 @@ object TeaScript extends  App{
   def explicitDouble(d1: Double, d2: Double, d3: Double): Vector[Double] = {
     Vector(d1, d2, d3)
   }
+
+  //18.
+  explicitList(Vector(10.0, 20.0)) is List(10.0, 20.0)
+  explicitList(Vector(1, 2, 3)) is List(1.0, 2.0, 3.0)
+
+  def explicitList(v: Vector[Double]): List[Double] = {
+    v.to[List]
+  }
 }
 
 class Tea(decaf: Boolean = false, name: String = "Earl Grey", sugar: Boolean = false, milk: Boolean = false){
