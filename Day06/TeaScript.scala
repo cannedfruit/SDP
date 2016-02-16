@@ -73,6 +73,14 @@ object TeaScript extends  App{
   def explicitList(v: Vector[Double]): List[Double] = {
     v.to[List]
   }
+
+  //19.
+  explicitSet(Vector(10.0, 20.0, 10.0)) is Set(10.0, 20.0)
+  explicitSet(Vector(1, 2, 3, 2, 3, 4)) is Set(1.0, 2.0, 3.0, 4.0)
+
+  def explicitSet(v: Vector[Double]): Set[Double] = {
+    v.to[Set]
+  }
 }
 
 class Tea(decaf: Boolean = false, name: String = "Earl Grey", sugar: Boolean = false, milk: Boolean = false){
