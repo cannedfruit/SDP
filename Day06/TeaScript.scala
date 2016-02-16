@@ -81,6 +81,14 @@ object TeaScript extends  App{
   def explicitSet(v: Vector[Double]): Set[Double] = {
     v.to[Set]
   }
+
+  //20.
+  val str = vectorToString(Vector(1,2,3,4))
+  str is "1,2,3,4,"
+
+  def vectorToString(v: Vector[Int]): String =  {
+    v.mkString(",") + ","
+  }
 }
 
 class Tea(decaf: Boolean = false, name: String = "Earl Grey", sugar: Boolean = false, milk: Boolean = false){
