@@ -89,6 +89,10 @@ object TeaScript extends  App{
   def vectorToString(v: Vector[Int]): String =  {
     v.mkString(",") + ","
   }
+
+  //21.
+  val dogYears = (x:Int) => x * 7
+    dogYears(10) is 70
 }
 
 class Tea(decaf: Boolean = false, name: String = "Earl Grey", sugar: Boolean = false, milk: Boolean = false){
