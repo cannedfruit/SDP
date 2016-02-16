@@ -99,6 +99,13 @@ object TeaScript extends  App{
   val v = Vector(1, 5, 7, 8)
   v.foreach(x=> s += dogYears(x).toString + " ")
   s is "7 35 49 56 "
+
+  //23.
+  s = ""
+  val numbers = Vector(1, 2, 5, 3, 7)
+  numbers.foreach(x => s += (x * x) + " ")
+  s is "1 4 25 9 49 "
+
 }
 
 class Tea(decaf: Boolean = false, name: String = "Earl Grey", sugar: Boolean = false, milk: Boolean = false){
