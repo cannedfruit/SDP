@@ -93,6 +93,12 @@ object TeaScript extends  App{
   //21.
   val dogYears = (x:Int) => x * 7
     dogYears(10) is 70
+
+  //22.
+  var s = ""
+  val v = Vector(1, 5, 7, 8)
+  v.foreach(x=> s += dogYears(x).toString + " ")
+  s is "7 35 49 56 "
 }
 
 class Tea(decaf: Boolean = false, name: String = "Earl Grey", sugar: Boolean = false, milk: Boolean = false){
