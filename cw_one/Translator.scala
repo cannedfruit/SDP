@@ -5,6 +5,7 @@ package cw_one
  */
 class Translator(fileName: String) {
   private final val ADD = "add"
+  private final val SUB = "sub"
   private final val LIN = "lin"
 
   // word + line is the part of the current line that's not yet processed
@@ -21,11 +22,13 @@ class Translator(fileName: String) {
     val lines = Source.fromFile(fileName).getLines
     for (line <- lines) {
       val fields = line.split(" ")
-      if (fields.length > 0) {
+      if (fields.nonEmpty) {
         labels.add(fields(0))
         fields(1) match {
           case ADD =>
             program = program :+ AddInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
+          case SUB =>
+            program = program :+ SubInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
           case LIN =>
             program = program :+ LinInstruction(fields(0), fields(2).toInt, fields(3).toInt)
           case x =>
