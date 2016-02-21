@@ -2,17 +2,17 @@ package cw_one
 
 /**
   * Created by Keith Mannock
-  * Executes the addition instruction
+  * Executes the subtraction instruction
   * @author Sarah Connor
   */
 
-class AddInstruction(label: String, op: String, val result: Int, val op1: Int, val op2: Int)
+class SubInstruction(label: String, op: String, val result: Int, val op1: Int, val op2: Int)
   extends Instruction(label, op) {
 
   override def execute(m: Machine) {
     val value1 = m.regs(op1)
     val value2 = m.regs(op2)
-    m.regs(result) = value1 + value2
+    m.regs(result) = value1 - value2
   }
 
   override def toString(): String = {
@@ -20,7 +20,7 @@ class AddInstruction(label: String, op: String, val result: Int, val op1: Int, v
   }
 }
 
-object AddInstruction {
+object SubInstruction {
   def apply(label: String, result: Int, op1: Int, op2: Int) =
-    new AddInstruction(label, "add", result, op1, op2)
+    new SubInstruction(label, "sub", result, op1, op2)
 }
