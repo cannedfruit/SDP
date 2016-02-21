@@ -1,7 +1,6 @@
 package cw_one
 
 /**
-  * Created by Keith Mannock
   * Executes the multiplication instruction
   * @author Sarah Connor
   */

@@ -1,7 +1,6 @@
 package cw_one
 
 /**
-  * Created by Keith Mannock
   * Executes the subtraction instruction
   * @author Sarah Connor
   */
