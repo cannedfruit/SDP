@@ -1,0 +1,23 @@
+package cw_one
+
+/**
+  * This class goes to the statement labeled if the contents of the register specified is not zero
+  *
+  * @author Sarah Connor
+  */
+case class BnzInstruction(label: String, opcode: String, register: Int, statement: String) extends Instruction(label, opcode) {
+
+  override def execute(m: Machine) =
+    if(m.regs(register) != 0){
+      m.execute(m.prog.indexWhere((instruction) => instruction.toString().contains(statement)))
+    }
+
+  override def toString(): String = {
+    super.toString + " if  register " + register + " is not 0, execute " + statement + "\n"
+  }
+}
+
+object BnzInstruction {
+  def apply(label: String, register: Int, statement: String) =
+    new BnzInstruction(label, "bnz", register, statement)
+}
