@@ -7,7 +7,7 @@ package cw_one
 class OutInstruction (label: String, op: String, val register: Int)  extends Instruction(label, op){
 
   override def execute(m: Machine) =
-    println(m.regs(register))
+    println("Register " + register + " contains " + m.regs(register))
 
   override def toString(): String = {
     super.toString + " register " + register + "\n"

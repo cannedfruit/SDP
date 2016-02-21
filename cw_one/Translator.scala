@@ -8,6 +8,7 @@ class Translator(fileName: String) {
   private final val SUB = "sub"
   private final val MUL = "mul"
   private final val DIV = "div"
+  private final val OUT = "out"
   private final val LIN = "lin"
 
   // word + line is the part of the current line that's not yet processed
@@ -35,6 +36,8 @@ class Translator(fileName: String) {
             program = program :+ MulInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
           case DIV =>
             program = program :+ DivInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
+          case OUT =>
+            program = program :+ OutInstruction(fields(0), fields(2).toInt)
           case LIN =>
             program = program :+ LinInstruction(fields(0), fields(2).toInt, fields(3).toInt)
           case x =>
