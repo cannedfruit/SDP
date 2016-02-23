@@ -1,8 +1,11 @@
-package cw_one
+package cw_one.Instructions
+
+import cw_one.Machine
 
 /**
   * Created by Keith Mannock
   * Executes the addition instruction
+  *
   * @author Sarah Connor
   */
 

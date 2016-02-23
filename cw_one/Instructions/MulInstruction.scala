@@ -1,7 +1,10 @@
-package cw_one
+package cw_one.Instructions
+
+import cw_one.Machine
 
 /**
   * Executes the multiplication instruction
+  *
   * @author Sarah Connor
   */
 

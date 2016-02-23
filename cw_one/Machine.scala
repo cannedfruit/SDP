@@ -1,5 +1,7 @@
 package cw_one
 
+import cw_one.Instructions.Instruction
+
 /**
   * The machine language interpreter
   */

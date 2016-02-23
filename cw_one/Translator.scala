@@ -1,5 +1,9 @@
 package cw_one
 
+import cw_one.Instructions._
+
+import scala.reflect.runtime.{universe=>ru}
+
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
  */
@@ -24,6 +28,8 @@ class Translator(fileName: String) {
     var program = m.prog
     import scala.io.Source
     val lines = Source.fromFile(fileName).getLines
+    val mirror = ru.runtimeMirror(getClass.getClassLoader)
+
     for (line <- lines) {
       val fields = line.split(" ")
       if (fields.nonEmpty) {

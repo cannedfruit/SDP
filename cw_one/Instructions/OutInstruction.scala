@@ -1,4 +1,6 @@
-package cw_one
+package cw_one.Instructions
+
+import cw_one.Machine
 
 /**
   * Prints the specified Register to the console

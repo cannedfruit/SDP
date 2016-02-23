@@ -1,4 +1,6 @@
-package cw_one
+package cw_one.Instructions
+
+import cw_one.Machine
 
 /**
   * This class goes to the statement labeled if the contents of the register specified is not zero
