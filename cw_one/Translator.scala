@@ -28,7 +28,6 @@ class Translator(fileName: String) {
     var program = m.prog
     import scala.io.Source
     val lines = Source.fromFile(fileName).getLines
-    val mirror = ru.runtimeMirror(getClass.getClassLoader)
 
     for (line <- lines) {
       val fields = line.split(" ")
