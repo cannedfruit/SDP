@@ -7,7 +7,7 @@ import cw_one.Machine
   *
   * @author Sarah Connor
   */
-case class BnzInstruction(label: String, opcode: String, register: Int, statement: String) extends Instruction(label, opcode) {
+class BnzInstruction(label: String, opcode: String, register: Int, statement: String) extends Instruction(label, opcode) {
 
   override def execute(m: Machine) =
     if(m.regs(register) != 0){

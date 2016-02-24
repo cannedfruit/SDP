@@ -5,19 +5,13 @@ import java.lang.reflect.Constructor
 
 import cw_one.Instructions._
 
+import scala.reflect.runtime.universe._
 import scala.reflect.runtime.{universe=>ru}
 
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
  */
 class Translator(fileName: String) {
-//  private final val ADD = "add"
-//  private final val SUB = "sub"
-//  private final val MUL = "mul"
-//  private final val DIV = "div"
-//  private final val OUT = "out"
-//  private final val LIN = "lin"
-//  private final val BNZ = "bnz"
 
   // word + line is the part of the current line that's not yet processed
   // word has no whitespace
@@ -33,35 +27,31 @@ class Translator(fileName: String) {
     val lines = Source.fromFile(fileName).getLines
     val instructionFactory = InstructionFactory
 
+
     for (line <- lines) {
       val fields = line.split(" ")
       if (fields.nonEmpty) {
         labels.add(fields(0))
-
         val instruction = instructionFactory.getInstruction(fields(1))
-        println(instruction.getClass.getName)
-        fields.take(1)
+        val removedOp = fields.filter(f=> fields.indexOf(f) != 1)
         val apply = instruction.getClass.getMethods.find(m => m.getName == "apply").get
-        apply.invoke(fields)
+        val params = new Array[Object] (removedOp.length)
+        for(i <- removedOp.indices){
+          val field:Object = removedOp(i)
+          try{
+            params(i) = removedOp(i).toInt.asInstanceOf[Object]
+          }catch{
+            case nfe: NumberFormatException=>{params(i) = field}
+          }
+        }
 
-//        fields(1) match {
-//          case ADD =>
-//            program = program :+ AddInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-//          case SUB =>
-//            program = program :+ SubInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-//          case MUL =>
-//            program = program :+ MulInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-//          case DIV =>
-//            program = program :+ DivInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-//          case OUT =>
-//            program = program :+ OutInstruction(fields(0), fields(2).toInt)
-//          case LIN =>
-//            program = program :+ LinInstruction(fields(0), fields(2).toInt, fields(3).toInt)
-//          case BNZ =>
-//            program = program :+ BnzInstruction(fields(0), fields(2).toInt, fields(3))
-//          case x =>
-//            println(s"Unknown instruction $x")
-//        }
+        try {
+           program = program :+ apply.invoke(instruction, params:_*).asInstanceOf[Instruction]
+        }catch {
+          case iae: IllegalArgumentException => {println("FAILED " + instruction.getClass.getName)
+          println(params.foreach(n=> println(n)))}
+
+        }
       }
     }
     new Machine(labels, program)

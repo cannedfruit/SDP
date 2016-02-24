@@ -6,7 +6,7 @@ import cw_one.Machine
   * Prints the specified Register to the console
   * Created by Sarah on 2/21/2016.
   */
-case class OutInstruction (label: String, op: String, val register: Int)  extends Instruction(label, op){
+class OutInstruction (label: String, op: String, val register: Int)  extends Instruction(label, op){
 
   override def execute(m: Machine) =
     println("Register " + register + " contains " + m.regs(register))
