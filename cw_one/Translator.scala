@@ -35,21 +35,17 @@ class Translator(fileName: String) {
         val instruction = instructionFactory.getInstruction(fields(1))
         val removedOp = fields.filter(f=> fields.indexOf(f) != 1)
         val apply = instruction.getClass.getMethods.find(m => m.getName == "apply").get
-        val params = new Array[Object] (removedOp.length)
-        for(i <- removedOp.indices){
-          val field:Object = removedOp(i)
-          try{
-            params(i) = removedOp(i).toInt.asInstanceOf[Object]
-          }catch{
-            case nfe: NumberFormatException=>{params(i) = field}
-          }
-        }
+        val params = removedOp.map(f => try{
+          f.toInt.asInstanceOf[Object]
+        }catch{
+          case nfe: NumberFormatException=> f
+        })
 
         try {
            program = program :+ apply.invoke(instruction, params:_*).asInstanceOf[Instruction]
         }catch {
-          case iae: IllegalArgumentException => {println("FAILED " + instruction.getClass.getName)
-          println(params.foreach(n=> println(n)))}
+          case iae: IllegalArgumentException => println("FAILED " + instruction.getClass.getName)
+            println(params.foreach(n=> println(n)))
 
         }
       }
