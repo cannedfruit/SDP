@@ -32,15 +32,20 @@ class Translator(fileName: String) {
       val fields = line.split(" ")
       if (fields.nonEmpty) {
         labels.add(fields(0))
-        val instruction = instructionFactory.getInstruction(fields(1))
-        val removedOp = fields.filter(f=> fields.indexOf(f) != 1)
+        val opCode = fields(1)
+        //call factory method to return desired class
+        val instruction = instructionFactory.getInstruction(opCode)
+        //find companion object apply method
         val apply = instruction.getClass.getMethods.find(m => m.getName == "apply").get
-        val params = removedOp.map(f => try{
+        //convert possible number parameters
+        val params = fields.filter(f=> fields.indexOf(f) != 1)
+          .map(f => try{
           f.toInt.asInstanceOf[Object]
         }catch{
           case nfe: NumberFormatException=> f
         })
 
+        //add instruction to program list
         try {
            program = program :+ apply.invoke(instruction, params:_*).asInstanceOf[Instruction]
         }catch {
