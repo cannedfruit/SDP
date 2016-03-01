@@ -10,15 +10,11 @@ class OutInstruction (label: String, op: String, val register: Int)  extends Ins
 
   override def execute(m: Machine) = {
     println("Register " + register + " contains " + m.regs(register))
-    val numOfLabels = m.labels.labels.size - 1
-    val instructionIndex = m.prog.indexWhere((instruction) => instruction.toString().contains(label))
-    if(numOfLabels == instructionIndex){
-      System.exit(0)
-    }
+    exitAtEnd(label, m)
   }
 
 
-  override def toString(): String = {
+  override def toString: String = {
     super.toString + " register " + register + "\n"
   }
 }

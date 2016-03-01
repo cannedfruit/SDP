@@ -9,10 +9,16 @@ import cw_one.Machine
   */
 abstract class Instruction(label: String, opcode: String) {
 
-  override def toString(): String = label + ": " + opcode
+  override def toString: String = label + ": " + opcode
 
   def execute(m: Machine): Unit
 
   //use type classes, implicit so says Keith
-
+  def exitAtEnd(label: String, m: Machine) ={
+    val numOfLabels = m.labels.labels.size - 1
+    val instructionIndex = m.prog.indexWhere((instruction) => instruction.toString().contains(label))
+    if(numOfLabels == instructionIndex){
+      System.exit(0)
+    }
+  }
 }
