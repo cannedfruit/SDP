@@ -5,3 +5,4 @@ L4 sub 3 1 2
 L5 mul 4 2 3
 L6 div 5 1 2
 L7 out 1
+L8 bnz 7 L6

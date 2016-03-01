@@ -1,12 +1,6 @@
 package cw_one
 
-import java.lang.Class
-import java.lang.reflect.Constructor
-
 import cw_one.Instructions._
-
-import scala.reflect.runtime.universe._
-import scala.reflect.runtime.{universe=>ru}
 
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.

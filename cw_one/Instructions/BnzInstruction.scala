@@ -7,12 +7,14 @@ import cw_one.Machine
   *
   * @author Sarah Connor
   */
-class BnzInstruction(label: String, opcode: String, register: Int, statement: String) extends Instruction(label, opcode) {
+class BnzInstruction(label: String, opcode: String, register: Int, statement: String)
+  extends Instruction(label, opcode) {
 
-  override def execute(m: Machine) =
-    if(m.regs(register) != 0){
+  override def execute(m: Machine) = {
+    if (m.regs(register) != 0) {
       m.execute(m.prog.indexWhere((instruction) => instruction.toString().contains(statement)))
     }
+  }
 
   override def toString(): String = {
     super.toString + " if  register " + register + " is not 0, execute " + statement + "\n"
