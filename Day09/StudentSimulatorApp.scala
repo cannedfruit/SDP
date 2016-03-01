@@ -15,7 +15,7 @@ object StudentSimulatorApp extends App{
   val teacherActorRef: ActorRef = actorSystem.actorOf(Props[TeacherActor])
 
   //Step 3: send QuoteRequest to the proxy
-  teacherActorRef!QuoteRequest
+  teacherActorRef ! QuoteRequest
 
   //Let's wait for a couple of seconds before we shut down the system
   Thread.sleep (2000)
