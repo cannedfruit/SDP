@@ -8,8 +8,15 @@ import cw_one.Machine
   */
 class OutInstruction (label: String, op: String, val register: Int)  extends Instruction(label, op){
 
-  override def execute(m: Machine) =
+  override def execute(m: Machine) = {
     println("Register " + register + " contains " + m.regs(register))
+    val numOfLabels = m.labels.labels.size - 1
+    val instructionIndex = m.prog.indexWhere((instruction) => instruction.toString().contains(label))
+    if(numOfLabels == instructionIndex){
+      System.exit(0)
+    }
+  }
+
 
   override def toString(): String = {
     super.toString + " register " + register + "\n"
