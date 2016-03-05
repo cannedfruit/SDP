@@ -16,7 +16,7 @@ class BnzInstruction(label: String, opcode: String, register: Int, statement: St
     }
   }
 
-  override def toString(): String = {
+  override def toString: String = {
     super.toString + " if  register " + register + " is not 0, execute " + statement + "\n"
   }
 }

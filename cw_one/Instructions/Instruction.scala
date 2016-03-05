@@ -14,7 +14,7 @@ abstract class Instruction(label: String, opcode: String) {
   def execute(m: Machine): Unit
 
   //use type classes, implicit so says Keith
-  def exitAtEnd(label: String, m: Machine) ={
+  def exitAtEnd(m: Machine) ={
     val numOfLabels = m.labels.labels.size - 1
     val instructionIndex = m.prog.indexWhere((instruction) => instruction.toString().contains(label))
     if(numOfLabels == instructionIndex){

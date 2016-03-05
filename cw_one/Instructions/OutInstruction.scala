@@ -10,7 +10,7 @@ class OutInstruction (label: String, op: String, val register: Int)  extends Ins
 
   override def execute(m: Machine) = {
     println("Register " + register + " contains " + m.regs(register))
-    exitAtEnd(label, m)
+    exitAtEnd(m)
   }
 
 

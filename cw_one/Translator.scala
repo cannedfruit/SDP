@@ -30,7 +30,7 @@ class Translator(fileName: String) {
         //call factory method to return desired class
         val instruction = instructionFactory.getInstruction(opCode)
         //find companion object apply method
-        val apply = instruction.getClass.getMethods.find(m => m.getName == "apply").get
+        val apply = instruction.getMethods.find(m => m.getName == "apply").get
         //convert possible number parameters
         val params = fields.filter(f=> fields.indexOf(f) != 1)
           .map(f => try{
