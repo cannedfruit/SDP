@@ -7,7 +7,6 @@ object InstructionFactory{
 
   def getInstruction(opCode: String):Class[_] = {
     val classname = "cw_one.Instructions." + opCode.capitalize + "Instruction"
-    println(classOf[LinInstruction].getName)
     Class.forName(classname)
   }
 }
