@@ -17,7 +17,7 @@ class BnzInstruction(label: String, opcode: String, register: Int, statement: St
         m.execute(m.prog.indexWhere((instruction) => instruction.toString().contains(statement)))
       }
     }
-    isLastInstruction = (m.prog.length - 1) == m.labels.labels.indexOf(label)
+    if((m.prog.length - 1) == m.labels.labels.indexOf(label)) IsOverFlag.isLastInstruction = true
   }
 
   override def toString: String = {

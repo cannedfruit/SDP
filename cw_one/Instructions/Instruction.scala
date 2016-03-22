@@ -9,7 +9,7 @@ import cw_one.Machine
   */
 abstract class Instruction(label: String, opcode: String) {
 
-  var isLastInstruction :Boolean = _
+  def isLastInstruction :Boolean =  IsOverFlag.isLastInstruction
 
   override def toString: String = label + ": " + opcode
 

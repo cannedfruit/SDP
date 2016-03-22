@@ -11,7 +11,6 @@ import cw_one.Machine
 class SubInstruction(label: String, op: String, val result: Int, val op1: Int, val op2: Int)
   extends Instruction(label, op) {
 
- // var isLastInstruction:Boolean=_
 
   override def execute(m: Machine) {
     if(!isLastInstruction) {
@@ -19,7 +18,7 @@ class SubInstruction(label: String, op: String, val result: Int, val op1: Int, v
       val value2 = m.regs(op2)
       m.regs(result) = value1 - value2
     }
-    isLastInstruction = (m.prog.length - 1) == m.labels.labels.indexOf(label)
+    if((m.prog.length - 1) == m.labels.labels.indexOf(label)) IsOverFlag.isLastInstruction = true
   }
 
   override def toString: String = {

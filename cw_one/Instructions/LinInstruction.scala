@@ -9,11 +9,9 @@ import cw_one.Machine
   */
 class LinInstruction(label: String, opcode: String, register: Int, value: Int) extends Instruction(label, opcode) {
 
- // var isLastInstruction: Boolean =_
-
   override def execute(m: Machine) = {
     if(!isLastInstruction) m.regs(register) = value
-    isLastInstruction = (m.prog.length - 1) == m.labels.labels.indexOf(label)
+    if((m.prog.length - 1) == m.labels.labels.indexOf(label)) IsOverFlag.isLastInstruction = true
   }
 
   override def toString: String = {
