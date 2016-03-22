@@ -1,7 +1,7 @@
 package cw_one.Instructions
 
 /**
-  * Created by Sarah on 3/22/2016.
+  * Boolean flag signalling the end of the program in order to exit the recursive loop
   */
 object IsOverFlag {
 

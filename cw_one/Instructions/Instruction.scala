@@ -9,18 +9,25 @@ import cw_one.Machine
   */
 abstract class Instruction(label: String, opcode: String) {
 
+  /**
+    * method to dynamically determine the end of program
+    * @return Boolean flag signalling end of program
+    */
   def isLastInstruction :Boolean =  IsOverFlag.isLastInstruction
 
   override def toString: String = label + ": " + opcode
 
   def execute(m: Machine): Unit
 
-  //use type classes, implicit so says Keith
-  def exitAtEnd(m: Machine) ={
+  /**
+    * sets the boolean flag IsOverFlag
+    * @param m Machine is executing the Instruction
+    */
+  def setIsOverFlag(m: Machine) ={
     val numOfLabels = m.labels.labels.size - 1
     val instructionIndex = m.prog.indexWhere((instruction) => instruction.toString().contains(label))
     if(numOfLabels == instructionIndex){
-      System.exit(0)
+      IsOverFlag.isLastInstruction = true
     }
   }
 }

@@ -18,7 +18,7 @@ class SubInstruction(label: String, op: String, val result: Int, val op1: Int, v
       val value2 = m.regs(op2)
       m.regs(result) = value1 - value2
     }
-    if((m.prog.length - 1) == m.labels.labels.indexOf(label)) IsOverFlag.isLastInstruction = true
+    setIsOverFlag(m)
   }
 
   override def toString: String = {

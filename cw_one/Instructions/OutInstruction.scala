@@ -11,7 +11,7 @@ class OutInstruction (label: String, op: String, val register: Int)  extends Ins
 
   override def execute(m: Machine) = {
     if(!isLastInstruction) println("Register " + register + " contains " + m.regs(register))
-    if((m.prog.length - 1) == m.labels.labels.indexOf(label)) IsOverFlag.isLastInstruction = true
+    setIsOverFlag(m)
   }
 
 
