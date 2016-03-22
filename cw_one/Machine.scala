@@ -10,7 +10,7 @@ case class Machine(labels: Labels, prog: Vector[Instruction]) {
   // The registers of the SML machine
   val regs: Registers = new Registers(NUMBEROFREGISTERS)
 
-  override def toString(): String = {
+  override def toString: String = {
     prog.foldLeft("")(_ + _)
   }
 

@@ -8,9 +8,11 @@ import cw_one.Machine
   */
 class OutInstruction (label: String, op: String, val register: Int)  extends Instruction(label, op){
 
+//  var isLastInstruction : Boolean =_
+
   override def execute(m: Machine) = {
-    println("Register " + register + " contains " + m.regs(register))
-    exitAtEnd(m)
+    if(!isLastInstruction) println("Register " + register + " contains " + m.regs(register))
+    isLastInstruction = (m.prog.length - 1) == m.labels.labels.indexOf(label)
   }
 
 

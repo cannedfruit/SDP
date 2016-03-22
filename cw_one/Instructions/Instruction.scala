@@ -9,6 +9,8 @@ import cw_one.Machine
   */
 abstract class Instruction(label: String, opcode: String) {
 
+  var isLastInstruction :Boolean = _
+
   override def toString: String = label + ": " + opcode
 
   def execute(m: Machine): Unit

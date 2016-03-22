@@ -10,10 +10,14 @@ import cw_one.Machine
 class BnzInstruction(label: String, opcode: String, register: Int, statement: String)
   extends Instruction(label, opcode) {
 
+
   override def execute(m: Machine) = {
-    if (m.regs(register) != 0) {
-      m.execute(m.prog.indexWhere((instruction) => instruction.toString().contains(statement)))
+    if(m.regs(register) != 0) {
+      if (!isLastInstruction) {
+        m.execute(m.prog.indexWhere((instruction) => instruction.toString().contains(statement)))
+      }
     }
+    isLastInstruction = (m.prog.length - 1) == m.labels.labels.indexOf(label)
   }
 
   override def toString: String = {

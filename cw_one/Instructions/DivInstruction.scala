@@ -11,13 +11,18 @@ import cw_one.Machine
 class DivInstruction(label: String, op: String, val result: Int, val op1: Int, val op2: Int)
   extends Instruction(label, op) {
 
+ // var isLastInstruction: Boolean =_
+
   override def execute(m: Machine) {
-    val value1 = m.regs(op1)
-    val value2 = m.regs(op2)
-    m.regs(result) = value1 / value2
+    if(!isLastInstruction) {
+      val value1 = m.regs(op1)
+      val value2 = m.regs(op2)
+      m.regs(result) = value1 / value2
+    }
+    isLastInstruction = (m.prog.length - 1) == m.labels.labels.indexOf(label)
   }
 
-  override def toString(): String = {
+  override def toString: String = {
     super.toString + " " + op1 + " / " + op2 + " to " + result + "\n"
   }
 }

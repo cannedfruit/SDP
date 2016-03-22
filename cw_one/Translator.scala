@@ -42,7 +42,7 @@ class Translator(fileName: String) {
 
         //add instruction to program list
         try {
-           program = program :+ apply.invoke(instruction, params:_*).asInstanceOf[Instruction]
+          program = program :+ apply.invoke(instruction, params:_*).asInstanceOf[Instruction]
         }catch {
           case iae: IllegalArgumentException => println("FAILED " + instruction.getName)
             println(params.foreach(n=> println(n)))
