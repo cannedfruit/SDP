@@ -25,9 +25,12 @@ class TeacherActor extends Actor with ActorLogging{
       //construct a QuoteResponse
       val quoteResponse = QuoteResponse(quotes(Random.nextInt(quotes.size)))
       //log the response
-      log.info(quoteResponse.toString)
+//      log.info(quoteResponse.toString)
+//
+//      println(quoteResponse)
 
-      println(quoteResponse)
+      //respond back to Student Actor who is the original sender of QuoteRequest
+      sender ! quoteResponse
     }
   }
 
