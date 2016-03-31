@@ -1,4 +1,4 @@
-package Day09
+package Day09_10
 
 import akka.actor.{Actor, ActorLogging}
 import akka.event.LoggingReceive

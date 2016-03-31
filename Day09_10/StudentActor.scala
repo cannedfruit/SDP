@@ -1,7 +1,7 @@
-package Day09
+package Day09_10
 
-import Day09.StudentProtocol.InitSignal
-import Day09.TeacherProtocol.{QuoteRequest, QuoteResponse}
+import Day09_10.StudentProtocol.InitSignal
+import Day09_10.TeacherProtocol.{QuoteRequest, QuoteResponse}
 import akka.actor.{Actor, ActorLogging, ActorRef}
 
 /**

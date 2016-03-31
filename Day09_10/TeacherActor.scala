@@ -1,6 +1,6 @@
-package Day09
+package Day09_10
 
-import Day09.TeacherProtocol.{QuoteResponse, QuoteRequest}
+import Day09_10.TeacherProtocol.{QuoteResponse, QuoteRequest}
 import akka.actor.{ActorLogging, Actor}
 
 /**

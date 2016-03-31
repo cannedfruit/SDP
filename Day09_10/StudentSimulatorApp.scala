@@ -1,6 +1,6 @@
-package Day09
+package Day09_10
 
-import Day09.TeacherProtocol.QuoteRequest
+import Day09_10.TeacherProtocol.QuoteRequest
 import akka.actor.{Props, ActorRef, ActorSystem, actorRef2Scala}
 
 /**

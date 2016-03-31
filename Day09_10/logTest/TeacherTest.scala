@@ -1,7 +1,7 @@
-package Day09.logTest
+package Day09_10.logTest
 
-import Day09.{TeacherLogParameterActor, TeacherActor}
-import Day09.TeacherProtocol.QuoteRequest
+import Day09_10.{TeacherLogParameterActor, TeacherActor}
+import Day09_10.TeacherProtocol.QuoteRequest
 import akka.actor.ActorSystem
 import akka.testkit.{EventFilter, TestActorRef, TestKit}
 import com.typesafe.config.ConfigFactory
